@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
 import './App.css';
 
 import ToDoList from './pages/ToDoList';
@@ -21,6 +22,8 @@ const router = createBrowserRouter([
 ])
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RecoilRoot>
+      <RouterProvider router={router} />
+    </RecoilRoot>
   </React.StrictMode>
 );
