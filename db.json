@@ -1,0 +1,30 @@
+{
+  "list" : [
+    {
+      "id" : 1,
+      "title": "cs 스터디",
+      "content": "cs 스터디 만들기",
+      "state": "todo",
+      "createdTime": "11:27"
+    },
+    {
+      "id" : 2,
+      "title": "clean code 읽기",
+      "content": "1장 읽기",
+      "state": "todo",
+      "createdTime": "20:23"
+    },{
+      "id" : 3,
+      "title": "todolist 만들기",
+      "content": "todolist 6/15까지 완성해야한다.",
+      "state": "proceeding",
+      "createdTime": "16:22"
+    },{
+      "id" : 4,
+      "title": "recoil 공부",
+      "content": "recoiil 공부하고 노션에 정리까지 해야한다.",
+      "state": "complete",
+      "createdTime": "09:07"
+    }
+  ]
+}
