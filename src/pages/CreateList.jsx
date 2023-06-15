@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import moment from "moment/moment";
+import { createItem } from "../api/axios";
 
 const CreateList = () => {
   const navigate = useNavigate();
@@ -9,8 +11,25 @@ const CreateList = () => {
   const toMainPage = () => {
     navigate('/')
   }
-  console.log(title)
-  const handleAddList = () => {
+
+
+  const submitItem = () => {
+    let time = moment().format("HH:mm")
+    const data = {
+      "title": title,
+      "content": content,
+      "state": "todo",
+      "createdTime": time
+    }
+
+    createItem(data) 
+      .then(() => {
+        console.log('등록 성공')
+        navigate('/')
+      })
+      .catch((e) => {
+        console.log("실패: ", e)
+      })
 
   }
 
@@ -33,12 +52,13 @@ const CreateList = () => {
             <p className="text-main font-bold text-xl">내용</p>
             <textarea 
               rows="8"
+              onChange={(e) => {setContent(e.target.value)}}
               className="border-main border-2 w-[700px] min-h-[60px] my-5 required resize-none" 
             >
             </textarea>
           </form>
         </div>
-        <button className="bg-main text-white text-2xl rounded-sm w-[130px] h-[40px]">추가</button>
+        <button className="bg-main text-white text-2xl rounded-sm w-[130px] h-[40px]" onClick={submitItem}>추가</button>
       </div>
     </div>
   )
