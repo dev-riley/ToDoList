@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
-import { deleteItem } from "../../api/axios";
-import { useState } from "react";
+import { deleteItem, editItem, getList } from "../../api/axios";
+import { useEffect, useState } from "react";
 
 const CardItem = ({item}) => {
   const { id, title, content, state, createdTime } = item
@@ -21,6 +21,24 @@ const CardItem = ({item}) => {
         })
     }
   }
+  const editButton = (id) => {
+    console.log(id)
+    const data = {
+      "title": newTitle || title,
+      "content" : newContent || content,
+      "state": state,
+    }
+    
+    editItem(id, data)
+      .then((data) => {
+        console.log('수정 성공: ', data)
+        setOpenModal(false)
+      })
+      .catch((e) => {
+        console.log('실패: ', e)
+      })
+  }
+  
 
   return ( 
     <div className="flex justify-center">
@@ -68,7 +86,10 @@ const CardItem = ({item}) => {
                 <button className="text-red-dark font-bold text-xl w-[100px] px-6 py-2" onClick={() => setOpenModal(false)}>
                   취소
                 </button>
-                <button className="bg-main text-white font-bold text-xl w-[130px] rounded-md">
+                <button 
+                  className="bg-main text-white font-bold text-xl w-[130px] rounded-md"
+                  onClick={() => editButton(id)}
+                  >
                   수정하기
                 </button>
               </div>
