@@ -14,7 +14,7 @@ const DateTimeComponent = () => {
   }, [])
 
   // 시간
-  let hour = ((dt.getHours()) < 12 ? "오전 " + (dt.getHours()) : "오후" + (dt.getHours() - 12))
+  let hour = ((dt.getHours()) < 12 ? "오전 " + (dt.getHours()) : "오후 " + (dt.getHours() - 12))
   let min = ((dt.getMinutes()) < 9 ? "0" + (dt.getMinutes()) : (dt.getMinutes()))
   let sec = ((dt.getSeconds()) < 9 ? "0" + (dt.getSeconds()) : (dt.getSeconds()))
   
@@ -28,7 +28,7 @@ const DateTimeComponent = () => {
   })
 
   return(
-    <div>
+    <div className='m-2'>
       <p className='text-xl font-bold'>{date}</p>
       <p className='text-xl font-bold'>{time}</p>
     </div>
