@@ -20,6 +20,18 @@ export const createItem = async (data) => {
   })
 }
 
+// 티켓 수정하기
+export const editItem = async (id, data) => {
+  return await axios({
+    method: 'PUT',
+    url: `http://localhost:8000/list/${id}`,
+    headers: {
+      "Content-Type" : "application/json"
+    },
+    data: data
+  })
+}
+
 // 티켓 삭제하기 
 export const deleteItem = async (id) => {
   return await axios({
