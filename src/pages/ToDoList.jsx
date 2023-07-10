@@ -12,7 +12,6 @@ const ToDoList = () => {
   const [lists, setLists] = useState([])
   const [visibleLists, setVisibleLists ] = useState([])
   const [showMoreCount, setShowMoreCount] = useState(5);
-  const [isExpanded, setIsExpanded ] = useState(false);
 
   useEffect(() => {
     getList()
@@ -33,22 +32,12 @@ const ToDoList = () => {
   ]
 
   const handleShowMore = () => {
-    setShowMoreCount((prev) => prev + 3);
+    setShowMoreCount(lists.length)
   }
 
   const handleCollapse = () => {
-    // setIsExpanded(false);
     setShowMoreCount(5);
   }
-
-  // const handleExpand = () => {
-  //   setIsExpanded(true);
-  //   setShowMoreCount(lists.length)
-  // }
-
-  const isMoreToShow = () => {
-    return showMoreCount < lists.length;
-  };
 
   return(
     <div className='container'>
@@ -92,7 +81,7 @@ const ToDoList = () => {
                       </div>
                     )
                   ) : null} */}
-                  {/* {filteredLists.length > showMoreCount && (
+                  {filteredLists.length > showMoreCount && (
                     <div className='border-2 border-main h-[40px] text-xl font-bold text-center'>
                       <button onClick={handleShowMore} >
                         더보기
@@ -107,22 +96,7 @@ const ToDoList = () => {
                         <FontAwesomeIcon icon={faArrowUp} className='ml-2' />
                       </button>
                     </div>
-                  )} */}
-                {isMoreToShow() && (
-                  <div className='border-2 border-main h-[40px] text-xl font-bold text-center'>
-                    {showMoreCount <= 5  ? (
-                      <button onClick={handleShowMore}>
-                        더보기
-                        <FontAwesomeIcon icon={faArrowDown} className='ml-2' />
-                      </button>
-                    ) : (
-                      <button onClick={handleCollapse}>
-                        접기
-                        <FontAwesomeIcon icon={faArrowUp} className='ml-2' />
-                      </button>
-                    )}
-                  </div>
-                )}  
+                  )}
               </div>
             )
           })}
