@@ -2,19 +2,13 @@ import { useEffect, useState } from "react";
 import { getList } from "../../api/axios";
 import CardItem from "./CardItem";
 
-const CardList = () => {
-  const [list, setList] = useState([])
+const CardList = ({lists}) => {
 
-  useEffect(() => {
-    getList()
-      .then((res) => setList(res.data))
-  }, [])
-  // console.log(list)
   return ( 
     <div>
       <div>
-        {list.map(item => (
-          <CardItem key={item.id} item={item} />
+        {lists.map((list) => (
+          <CardItem key={list.id} list={list} />
         ))}
       </div>
     </div>

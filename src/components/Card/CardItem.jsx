@@ -4,8 +4,8 @@ import { faPenToSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { deleteItem, editItem, getList } from "../../api/axios";
 import { useEffect, useState } from "react";
 
-const CardItem = ({item}) => {
-  const { id, title, content, state, createdTime } = item
+const CardItem = ({list}) => {
+  const { id, title, content, state, createdTime } = list
   const [ openModal, setOpenModal ] = useState(false);
   const [ newTitle, setNewTitle ] = useState('')
   const [ newContent, setNewContent ] = useState('') 
