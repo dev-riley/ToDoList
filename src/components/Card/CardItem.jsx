@@ -70,7 +70,7 @@ const CardItem = ({list}) => {
                   type="text"
                   defaultValue={title}
                   onChange={(e) => setNewTitle(e.target.value)}
-                  className="border-main border-2 w-[600px] h-[40px] my-5 required rounded-md"
+                  className="border-main border-2 w-[600px] h-[40px] my-5 p-2.5 required rounded-md"
                 />
               </div>
               <div>
@@ -79,7 +79,7 @@ const CardItem = ({list}) => {
                   rows="5" 
                   type="text"
                   onChange={(e) => setNewContent(e.target.value)}
-                  className="border-main border-2 w-[600px] min-h-[70px] my-5 required resize-none rounded-md" 
+                  className="border-main border-2 w-[600px] min-h-[70px] my-5 p-2.5 required resize-none rounded-md" 
                 >{content}</textarea>
               </div>
               <div className="flex justify-end space-x-3 mb-5">
